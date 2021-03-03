@@ -1,0 +1,34 @@
+{
+    "meta": {
+        "version": "PTDL_v1"
+    },
+    "name": "Caddy Server",
+    "author": "Razboy20",
+    "description": "Runs a Caddy Server through pterodactyl.",
+    "image": "github.com/razboy20/pterodactyl-caddy",
+    "startup": "{{STARTUP_CMD}}",
+    "config": {
+        "files": "{\r\n    \"caddy/Caddyfile\": {\r\n        \"parser\": \"file\",\r\n        \"find\": {\r\n            \"    http_port \": \"    http_port {{server.build.default.port}},\"\r\n            \"    https_port \": \"    https_port {{server.build.default.port}}\"\r\n        }\r\n    }\r\n}",
+        "startup": "{\r\n    \"done\": \"\",\r\n    \"userInteraction\": []\r\n}",
+        "logs": "{\r\n    \"custom\": false,\r\n    \"location\": \"logs/latest.log\"\r\n}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!/bin/ash\r\n\r\ncd /mnt/server\r\n\r\napk --no-cache add git curl\r\n\r\ngit clone https://github.com/razboy20/pterodactyl-caddy ./temp\r\n\r\ncp -r ./temp/caddy /mnt/server/\r\ncp -r ./temp/public /mnt/server/\r\ncurl https://caddyserver.com/api/download?os=linux&arch=amd64&idempotency=33572405766393 --output caddy-server.sh\r\n\r\nchmod +x /mnt/server/caddy-server.sh\r\n\r\nrm -rf ./temp",
+            "container": "alpine:latest",
+            "entrypoint": "ash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Startup Command",
+            "description": "The command to start",
+            "env_variable": "STARTUP_CMD",
+            "default_value": "./caddy-server.sh run --watch --config ./caddy/Caddyfile",
+            "user_viewable": 1,
+            "user_editable": 1,
+            "rules": "present"
+        }
+    ]
+}

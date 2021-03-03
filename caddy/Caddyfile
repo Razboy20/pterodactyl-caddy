@@ -1,0 +1,14 @@
+{
+    http_port 
+    https_port 
+    admin off
+}
+
+# Replace "example.com" with your domain/accessing url or else caddy will yell at you.
+example.com {
+root * /home/container/public
+file_server
+encode zstd gzip
+}
+
+# In this default state, Caddy will host all files under /public in the web server. Feel free to change and completely modify this file!

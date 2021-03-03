@@ -1,0 +1,3 @@
+# pterodactyl-caddy
+
+self explanatory
