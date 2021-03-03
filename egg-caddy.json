@@ -15,7 +15,7 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!/bin/ash\r\n\r\ncd /mnt/server\r\n\r\napk --no-cache add git curl\r\n\r\ngit clone https://github.com/razboy20/pterodactyl-caddy ./temp\r\n\r\ncp -r ./temp/caddy /mnt/server/\r\ncp -r ./temp/public /mnt/server/\r\ncurl https://caddyserver.com/api/download?os=linux&arch=amd64&idempotency=33572405766393 --output /mnt/server/caddy-server.sh\r\n\r\nchmod +x /mnt/server/caddy-server.sh\r\n\r\nrm -rf ./temp",
+            "script": "#!/bin/ash\r\n\r\ncd /mnt/server\r\n\r\napk --no-cache add git\r\napk --no-cache add curl\r\n\r\ngit clone https://github.com/razboy20/pterodactyl-caddy ./temp\r\n\r\ncp -r ./temp/caddy /mnt/server/\r\ncp -r ./temp/public /mnt/server/\r\ncurl \"https://caddyserver.com/api/download?os=linux&arch=amd64&idempotency=33572405766393\" -s --output /mnt/server/caddy-server.sh\r\n\r\nchmod +x /mnt/server/caddy-server.sh\r\n\r\nrm -rf ./temp",
             "container": "alpine:latest",
             "entrypoint": "ash"
         }
