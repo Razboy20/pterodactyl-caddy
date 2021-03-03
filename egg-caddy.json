@@ -15,7 +15,7 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!/bin/ash\r\n\r\ncd /mnt/server\r\n\r\napk --no-cache add git\r\napk --no-cache add curl\r\n\r\ngit clone https://github.com/razboy20/pterodactyl-caddy ./temp\r\n\r\ncp -r ./temp/caddy /mnt/server/\r\ncp -r ./temp/public /mnt/server/\r\ncurl \"https://caddyserver.com/api/download?os=linux&arch=amd64&idempotency=33572405766393\" -s --output /mnt/server/caddy-server.sh\r\n\r\nchmod +x /mnt/server/caddy-server.sh\r\n\r\nrm -rf ./temp",
+            "script": "#!/bin/ash\r\n\r\ncd /mnt/server\r\n\r\napk --no-cache add git\r\napk --no-cache add curl\r\n\r\ngit clone https://github.com/razboy20/pterodactyl-caddy ./temp\r\n\r\ncp -r ./temp/caddy /mnt/server/\r\ncp -r ./temp/public /mnt/server/\r\ncurl \"https://caddyserver.com/api/download?os=linux&arch=amd64&idempotency=33572405766393\" -s --output /mnt/server/caddy-server\r\n\r\nchmod +x /mnt/server/caddy-server\r\n\r\nrm -rf ./temp",
             "container": "alpine:latest",
             "entrypoint": "ash"
         }
@@ -25,7 +25,7 @@
             "name": "Startup Command",
             "description": "The command to start",
             "env_variable": "STARTUP_CMD",
-            "default_value": "./caddy-server.sh run --watch --config ./caddy/Caddyfile",
+            "default_value": "./caddy-server run --watch --config ./caddy/Caddyfile",
             "user_viewable": 1,
             "user_editable": 1,
             "rules": "present"
