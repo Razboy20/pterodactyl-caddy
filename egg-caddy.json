@@ -5,7 +5,7 @@
     "name": "Caddy Server",
     "author": "Razboy20@razboy.dev",
     "description": "Runs a Caddy Server through pterodactyl.",
-    "image": "github.com/razboy20/pterodactyl-caddy",
+    "image": "razboy20/pterodactyl-caddy:latest",
     "startup": "{{STARTUP_CMD}}",
     "config": {
         "files": "{\r\n    \"caddy/Caddyfile\": {\r\n        \"parser\": \"file\",\r\n        \"find\": {\r\n            \"    http_port \": \"    http_port {{server.build.default.port}}\",\r\n            \"    https_port \": \"    https_port {{server.build.default.port}}\"\r\n        }\r\n    }\r\n}",
@@ -15,7 +15,7 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!/bin/ash\r\n\r\ncd /mnt/server\r\n\r\napk --no-cache add git\r\n\r\ngit clone https://github.com/razboy20/pterodactyl-caddy ./temp\r\n\r\ncp -r ./temp/caddy /mnt/server/\r\ncp -r ./temp/public /mnt/server/\r\ncurl \"https://caddyserver.com/api/download?os=linux&arch=amd64&idempotency=33572405766393\" -s --output /mnt/server/caddy-server\r\n\r\nchmod +x /mnt/server/caddy-server\r\n\r\nrm -rf ./temp",
+            "script": "#!/bin/ash\r\n\r\ncd /mnt/server\r\n\r\napk --no-cache add curl git\r\n\r\ngit clone https://github.com/razboy20/pterodactyl-caddy ./temp\r\n\r\ncp -r ./temp/caddy /mnt/server/\r\ncp -r ./temp/public /mnt/server/\r\ncurl \"https://caddyserver.com/api/download?os=linux&arch=amd64&idempotency=33572405766393\" -s --output /mnt/server/caddy-server\r\n\r\nchmod +x /mnt/server/caddy-server\r\n\r\nrm -rf ./temp",
             "container": "alpine:latest",
             "entrypoint": "ash"
         }
