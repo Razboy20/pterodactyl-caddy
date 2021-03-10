@@ -10,7 +10,7 @@ example.com {
     file_server
     encode zstd gzip
 
-    php_fastcgi unix//run/php/php7-fpm.sock
+    php_fastcgi unix//tmp/php-fpm.sock
 }
 
 # In this default state, Caddy will host all files under /public in the web server. Feel free to change and completely modify this file!
