@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 RUN apk --update --no-cache add curl ca-certificates
-RUN apk add php7.4 php7.4-fpm php7.4-mcrypt php7.4-soap php7.4-openssl php7.4-gmp php7.4-pdo_odbc php7.4-json php7.4-dom php7.4-pdo php7.4-zip php7.4-mysqli php7.4-sqlite3 php7.4-apcu php7.4-pdo_pgsql php7.4-bcmath php7.4-gd php7.4-odbc php7.4-pdo_mysql php7.4-pdo_sqlite php7.4-gettext php7.4-xmlreader php7.4-xmlrpc php7.4-bz2 php7.4-iconv php7.4-pdo_dblib php7.4-curl php7.4-ctype php7.4-phar php7.4-fileinfo php7.4-mbstring php7.4-tokenizer
+RUN apk add php php-fpm php-mcrypt php-soap php-openssl php-gmp php-pdo_odbc php-json php-dom php-pdo php-zip php-mysqli php-sqlite3 php-apcu php-pdo_pgsql php-bcmath php-gd php-odbc php-pdo_mysql php-pdo_sqlite php-gettext php-xmlreader php-xmlrpc php-bz2 php-iconv php-pdo_dblib php-curl php-ctype php-phar php-fileinfo php-mbstring php-tokenizer
 
 USER container
 ENV  USER container
