@@ -13,12 +13,11 @@ example.com {
     php_fastcgi unix//tmp/php-fpm.sock
     
     # Uncomment for NamelessMC websites; if Nameless is under a sub directory add route /forum { ... } around the code. 
-    # @nameless {
-    #     not path *.tpl*
+    # @nameless-blocked path_regexp \.(tpl|cache)$
+    # route @nameless-blocked {
+    #     respond "Page forbidden." 403
     # }
-    # route @nameless {
-    #     try_files {path} /index.php?route={path}&{query}
-    # }
+    # try_files {path} /index.php?route={path}&{query}
 }
 
 # In this default state, Caddy will host all files under /public in the web server. Feel free to change and completely modify this file!
