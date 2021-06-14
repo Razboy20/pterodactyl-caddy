@@ -4,7 +4,7 @@
     admin off
 }
 
-# Replace "example.com" with your domain/accessing url or else caddy will yell at you.
+# You can replace :<port> with a domain such as "example.com", to where only requests from that host will be routed. 
 example.com {
     root * /home/container/public
     file_server
