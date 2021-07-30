@@ -13,4 +13,4 @@ COPY ./entrypoint.sh /entrypoint.sh
 
 CMD ["/bin/ash", "/entrypoint.sh"]
 
-RUN setcap 'cap_net_bind_service=+ep' /home/container/caddy-server
+#RUN setcap 'cap_net_bind_service=+ep' /home/container/caddy-server
