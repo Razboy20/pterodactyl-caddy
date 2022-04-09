@@ -9,11 +9,12 @@ on:
 #   schedule:
 #     - cron: '35 11 * * *'
   push:
-    branches: [ main ]
+    branches: [ main, php8 ]
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 env:
   # Use docker.io for Docker Hub if empty
