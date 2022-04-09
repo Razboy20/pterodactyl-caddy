@@ -5,7 +5,7 @@
     "name": "Caddy Server",
     "author": "Razboy20@razboy.dev",
     "description": "Runs a Caddy Server through pterodactyl.",
-    "image": [ "ghcr.io/razboy20/pterodactyl-caddy:main", "ghcr.io/razboy20/pterodactyl-caddy:php8.1" ],
+    "image": [ "ghcr.io/razboy20/pterodactyl-caddy:main", "ghcr.io/razboy20/pterodactyl-caddy:php8" ],
     "startup": "{{STARTUP_CMD}}",
     "config": {
         "files": "{\r\n    \"caddy/Caddyfile\": {\r\n        \"parser\": \"file\",\r\n        \"find\": {\r\n            \"    http_port \": \"    http_port {{server.build.default.port}}\",\r\n            \"    https_port \": \"    https_port {{server.build.default.port}}\",\r\n            \"example.com {\": \":{{server.build.default.port}} {\"\r\n        }\r\n    }\r\n}",
