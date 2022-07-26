@@ -1,3 +1,3 @@
 # pterodactyl-caddy
 
-self explanatory
+A Pterodactyl Game Server Egg for the Caddy Web Server. 
