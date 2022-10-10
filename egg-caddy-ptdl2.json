@@ -20,7 +20,7 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/ash\r\n\r\ncd \/mnt\/server\r\n\r\napk --no-cache add curl git\r\n\r\ngit clone https:\/\/github.com\/razboy20\/pterodactyl-caddy .\/temp\r\n\r\ncp -r .\/temp\/caddy \/mnt\/server\/\r\ncp -r .\/temp\/public \/mnt\/server\/\r\ncp -r .\/temp\/php-fpm \/mnt\/server\/\r\ncp .\/temp\/start.sh \/mnt\/server\r\ncurl \"https:\/\/caddyserver.com\/api\/download?os=linux&arch=amd64&idempotency=33572405766393\" -s --output \/mnt\/server\/caddy-server\r\n\r\nchmod +x \/mnt\/server\/caddy-server\r\nchmod +x \/mnt\/server\/start.sh\r\n\r\nrm -rf .\/temp",
+            "script": "#!/bin/ash\r\n\r\ncd /mnt/server\r\n\r\napk --no-cache add curl git\r\n\r\ngit clone https://github.com/razboy20/pterodactyl-caddy ./temp\r\n\r\ncp -r ./temp/caddy /mnt/server/\r\ncp -r ./temp/public /mnt/server/\r\ncp -r ./temp/php-fpm /mnt/server/\r\ncp ./temp/start.sh /mnt/server\r\ncurl \"https://caddyserver.com/api/download?os=linux&arch=amd64&idempotency=33572405766393\" -s --output /mnt/server/caddy-server\r\n\r\nchmod +x /mnt/server/caddy-server\r\nchmod +x /mnt/server/start.sh\r\n\r\nrm -rf ./temp",
             "container": "alpine:3.4",
             "entrypoint": "ash"
         }
