@@ -13,7 +13,7 @@
     "file_denylist": [],
     "startup": "{{STARTUP_CMD}}",
     "config": {
-        "files": "{\r\n    \"caddy\/Caddyfile\": {\r\n        \"parser\": \"file\",\r\n        \"find\": {\r\n            \"    http_port \": \"    http_port {{server.build.default.port}}\",\r\n            \"    https_port \": \"    https_port {{server.build.default.port}}\",\r\n            \"example.com {\": \":{{server.build.default.port}} {\"\r\n        }\r\n    }\r\n}",
+        "files": "{\r\n    \"caddy\/Caddyfile\": {\r\n        \"parser\": \"file\",\r\n        \"find\": {\r\n            \"\\thttp_port <ptero_http_replace>\": \"\\thttp_port {{server.build.default.port}}\",\r\n            \"\\thttps_port <ptero_https_replace>\": \"\\thttps_port {{server.build.default.port}}\",\r\n            \"example.com {\": \":{{server.build.default.port}} {\"\r\n        }\r\n    }\r\n}",
         "startup": "{\r\n    \"done\": \"\",\r\n    \"userInteraction\": []\r\n}",
         "logs": "{\r\n    \"custom\": false,\r\n    \"location\": \"logs\/latest.log\"\r\n}",
         "stop": "^C"

@@ -1,6 +1,6 @@
 {
-	http_port
-	https_port
+	http_port <ptero_http_replace>
+	https_port <ptero_https_replace>
 	admin off
 }
 
@@ -12,7 +12,7 @@
 	try_files {path} /index.php?route={path}&{query}
 }
 
-# You can replace :<port> with a domain such as "example.com", to where only requests from that host will be routed. 
+# You can replace :<port> with a domain such as "example.com", to where only requests from that host will be routed.
 example.com {
 	root * /home/container/public
 	file_server
