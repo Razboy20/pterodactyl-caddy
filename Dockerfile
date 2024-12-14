@@ -1,8 +1,7 @@
 FROM alpine:latest
 
 RUN apk --update --no-cache add curl ca-certificates
-RUN apk add php83 php83-fpm php83-soap php83-openssl php83-session php83-exif php83-gmp php83-pdo_odbc php83-dom php83-pdo php83-zip php83-mysqli php83-sqlite3 php83-apcu php83-pdo_pgsql php83-bcmath php83-gd php83-odbc php83-pdo_mysql php83-pdo_sqlite php83-gettext php83-xml php83-simplexml php83-xmlwriter php83-xmlreader php83-bz2 php83-iconv php83-pdo_dblib php83-curl php83-ctype php83-phar php83-fileinfo php83-mbstring php83-tokenizer php83-intl php83-posix php83-opcache php83-pecl-imagick
-# not available in php8.2: php82-pecl-mcrypt
+RUN apk add php84 php84-fpm php84-soap php84-openssl php84-session php84-exif php84-gmp php84-pdo_odbc php84-dom php84-pdo php84-zip php84-mysqli php84-sqlite3 php84-apcu php84-pdo_pgsql php84-bcmath php84-gd php84-odbc php84-pdo_mysql php84-pdo_sqlite php84-gettext php84-xml php84-simplexml php84-xmlwriter php84-xmlreader php84-bz2 php84-iconv php84-pdo_dblib php84-curl php84-ctype php84-phar php84-fileinfo php84-mbstring php84-tokenizer php84-intl php84-posix php84-opcache php84-pecl-imagick
 
 USER container
 ENV  USER container
